@@ -1,0 +1,302 @@
+
+Command:
+python ./src/model.py
+
+output:
+['WMT_full.csv', 'BAC_full.csv', 'RUT_full.csv', 'CAT_full.csv', 'JPM_full.csv', 'OEX_full.csv', 'GS_full.csv', 'SBUX_full.csv', 'KO_full.csv', 'NKE_full.csv', 'TLT_full.csv', 'AMZN_full.csv', 'NDX_full.csv', 'AAPL_full.csv', 'IBM_full.csv', 'MSFT_full.csv', 'DIS_full.csv', 'TSLA_full.csv', 'BA_full.csv', 'DJI_full.csv']
+Start modelling for WMT:  2022-12-17 00:19:53.625115
+Data Prep finished:  2022-12-17 00:19:54.572084
+ridge model finished:  2022-12-17 00:21:39.365968
+rf model finished:  2022-12-17 00:33:25.626456
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 00:54:05.589246
+model trained, saved at ./data/WMT_model_result.csv at:  2022-12-17 00:54:05.594735
+Start modelling for BAC:  2022-12-17 00:54:05.594766
+Data Prep finished:  2022-12-17 00:54:05.637930
+ridge model finished:  2022-12-17 00:55:50.060738
+rf model finished:  2022-12-17 01:08:13.240894
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 01:28:48.272127
+model trained, saved at ./data/BAC_model_result.csv at:  2022-12-17 01:28:48.275131
+Start modelling for RUT:  2022-12-17 01:28:48.275154
+Data Prep finished:  2022-12-17 01:28:48.317702
+ridge model finished:  2022-12-17 01:30:32.594449
+rf model finished:  2022-12-17 01:42:23.609365
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 02:50:38.226080
+model trained, saved at ./data/RUT_model_result.csv at:  2022-12-17 02:50:38.236822
+Start modelling for CAT:  2022-12-17 02:50:38.236903
+Data Prep finished:  2022-12-17 02:50:38.485962
+ridge model finished:  2022-12-17 03:13:56.172973
+rf model finished:  2022-12-17 04:05:32.174972
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 05:42:10.452334
+model trained, saved at ./data/CAT_model_result.csv at:  2022-12-17 05:42:10.455881
+Start modelling for JPM:  2022-12-17 05:42:10.455904
+Data Prep finished:  2022-12-17 05:42:10.496501
+ridge model finished:  2022-12-17 05:44:08.720451
+rf model finished:  2022-12-17 06:59:15.078658
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 08:27:09.659412
+model trained, saved at ./data/JPM_model_result.csv at:  2022-12-17 08:27:09.677926
+Start modelling for OEX:  2022-12-17 08:27:09.678017
+Data Prep finished:  2022-12-17 08:27:09.937257
+ridge model finished:  2022-12-17 08:50:30.348261
+rf model finished:  2022-12-17 09:41:59.781634
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 12:18:03.643486
+model trained, saved at ./data/OEX_model_result.csv at:  2022-12-17 12:18:03.690730
+Start modelling for GS:  2022-12-17 12:18:03.690829
+Data Prep finished:  2022-12-17 12:18:04.147431
+ridge model finished:  2022-12-17 12:42:25.962616
+rf model finished:  2022-12-17 12:54:25.188907
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 13:14:52.036034
+model trained, saved at ./data/GS_model_result.csv at:  2022-12-17 13:14:52.043607
+Start modelling for SBUX:  2022-12-17 13:14:52.043632
+Data Prep finished:  2022-12-17 13:14:52.100072
+ridge model finished:  2022-12-17 13:16:38.441162
+rf model finished:  2022-12-17 13:28:00.173079
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 13:48:14.125770
+model trained, saved at ./data/SBUX_model_result.csv at:  2022-12-17 13:48:14.130268
+Start modelling for KO:  2022-12-17 13:48:14.130294
+Data Prep finished:  2022-12-17 13:48:14.172439
+ridge model finished:  2022-12-17 13:49:57.859911
+rf model finished:  2022-12-17 14:01:29.457267
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 14:21:43.239283
+model trained, saved at ./data/KO_model_result.csv at:  2022-12-17 14:21:43.244067
+Start modelling for NKE:  2022-12-17 14:21:43.244092
+Data Prep finished:  2022-12-17 14:21:43.286425
+ridge model finished:  2022-12-17 14:23:26.739687
+rf model finished:  2022-12-17 14:35:01.903397
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 14:55:20.119129
+model trained, saved at ./data/NKE_model_result.csv at:  2022-12-17 14:55:20.120813
+Start modelling for TLT:  2022-12-17 14:55:20.120829
+Data Prep finished:  2022-12-17 14:55:20.165124
+ridge model finished:  2022-12-17 14:57:04.200915
+rf model finished:  2022-12-17 15:09:04.084694
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 15:29:22.711927
+model trained, saved at ./data/TLT_model_result.csv at:  2022-12-17 15:29:22.713643
+Start modelling for AMZN:  2022-12-17 15:29:22.713660
+Data Prep finished:  2022-12-17 15:29:22.751975
+ridge model finished:  2022-12-17 15:31:06.675498
+rf model finished:  2022-12-17 15:42:36.318881
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 16:02:47.765331
+model trained, saved at ./data/AMZN_model_result.csv at:  2022-12-17 16:02:47.769239
+Start modelling for NDX:  2022-12-17 16:02:47.769265
+Data Prep finished:  2022-12-17 16:02:47.809108
+ridge model finished:  2022-12-17 16:04:31.320796
+rf model finished:  2022-12-17 16:16:09.920204
+gb model finished:  2022-12-17 16:35:48.815076
+model trained, saved at ./data/NDX_model_result.csv at:  2022-12-17 16:35:48.820737
+Start modelling for AAPL:  2022-12-17 16:35:48.820763
+Data Prep finished:  2022-12-17 16:35:48.862732
+ridge model finished:  2022-12-17 16:37:32.524850
+rf model finished:  2022-12-17 16:49:12.202349
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 17:09:06.006861
+model trained, saved at ./data/AAPL_model_result.csv at:  2022-12-17 17:09:06.012024
+Start modelling for IBM:  2022-12-17 17:09:06.012050
+Data Prep finished:  2022-12-17 17:09:06.056027
+ridge model finished:  2022-12-17 17:10:50.318522
+rf model finished:  2022-12-17 17:22:12.820929
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 17:41:59.097358
+model trained, saved at ./data/IBM_model_result.csv at:  2022-12-17 17:41:59.102150
+Start modelling for MSFT:  2022-12-17 17:41:59.102176
+Data Prep finished:  2022-12-17 17:41:59.145558
+ridge model finished:  2022-12-17 17:43:43.026858
+rf model finished:  2022-12-17 17:54:40.028391
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 18:14:25.741577
+model trained, saved at ./data/MSFT_model_result.csv at:  2022-12-17 18:14:25.743370
+Start modelling for DIS:  2022-12-17 18:14:25.743387
+Data Prep finished:  2022-12-17 18:14:25.785171
+ridge model finished:  2022-12-17 18:16:09.428108
+rf model finished:  2022-12-17 18:27:51.221158
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 18:48:53.965126
+model trained, saved at ./data/DIS_model_result.csv at:  2022-12-17 18:48:53.970394
+Start modelling for TSLA:  2022-12-17 18:48:53.970420
+Data Prep finished:  2022-12-17 18:48:54.013548
+ridge model finished:  2022-12-17 18:50:37.117485
+rf model finished:  2022-12-17 19:02:28.789419
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 19:22:08.062855
+model trained, saved at ./data/TSLA_model_result.csv at:  2022-12-17 19:22:08.066451
+Start modelling for BA:  2022-12-17 19:22:08.066478
+Data Prep finished:  2022-12-17 19:22:08.107575
+ridge model finished:  2022-12-17 19:23:51.743288
+rf model finished:  2022-12-17 19:35:35.112455
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 19:55:40.519435
+model trained, saved at ./data/BA_model_result.csv at:  2022-12-17 19:55:40.523100
+Start modelling for DJI:  2022-12-17 19:55:40.523125
+Data Prep finished:  2022-12-17 19:55:40.566876
+ridge model finished:  2022-12-17 19:57:24.407585
+rf model finished:  2022-12-17 20:08:52.003940
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+model.py:69: RuntimeWarning: divide by zero encountered in double_scalars
+  return(cagr, ratio, -cagr/maxDD)
+gb model finished:  2022-12-17 20:29:08.794472
+model trained, saved at ./data/DJI_model_result.csv at:  2022-12-17 20:29:08.799106

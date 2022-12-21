@@ -1,0 +1,4 @@
+./data/*
+./output/
+./project_venv/
+./MEM.LOG

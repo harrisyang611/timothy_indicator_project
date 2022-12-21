@@ -1,0 +1,3 @@
+#!/Users/Hades-611-Yang/Documents/Github/UT2022Fall/APS1052/final_project/project_venv/bin/python
+from numba.pycc import main
+main()

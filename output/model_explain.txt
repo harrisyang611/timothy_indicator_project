@@ -1,0 +1,83 @@
+(project_venv) Hades-611-Yang@Harriss-MacBook-Pro final_project % python src/model_explanation.py
+IPython could not be loaded!
+Model explanation Shap plots started for TSLA with gb and DT_RSI_2_20:  2022-12-18 23:09:07.052372
+Model trained finish:  2022-12-18 23:10:14.194484
+Permutation explainer: 2905it [04:03, 11.54it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for TSLA with gb and DT_RSI_2_20:  2022-12-18 23:14:18.217259
+Model explanation Shap plots started for TSLA with rf and LINTRND_10:  2022-12-18 23:14:18.217292
+Model trained finish:  2022-12-18 23:15:03.224726
+Permutation explainer: 2905it [15:54,  3.01it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for TSLA with rf and LINTRND_10:  2022-12-18 23:30:58.701805
+Model explanation Shap plots started for TSLA with ridge and RSI_20:  2022-12-18 23:30:58.701874
+Model trained finish:  2022-12-18 23:31:03.594284
+Permutation explainer: 2905it [01:27, 29.17it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for TSLA with ridge and RSI_20:  2022-12-18 23:32:32.260671
+Model explanation Shap plots started for TSLA with gb and ENT_4_16:  2022-12-18 23:32:32.260700
+Model trained finish:  2022-12-18 23:33:46.136734
+Permutation explainer: 2905it [17:43,  2.71it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for TSLA with gb and ENT_4_16:  2022-12-18 23:51:30.415895
+Model explanation Shap plots started for TSLA with rf and PR_INT_0:  2022-12-18 23:51:30.415919
+Model trained finish:  2022-12-18 23:52:10.340585
+Permutation explainer:  54%|█████████████████████████████████████████████████████████████▋                                                     | 1557/2904 [09:29<08:39,  2.59it/s]
+Permutation explainer: 2905it [17:43,  2.70it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for TSLA with rf and PR_INT_0:  2022-12-19 00:09:54.556099
+Model explanation Shap plots started for TSLA with rf and base:  2022-12-19 00:09:54.556122
+Model trained finish:  2022-12-19 00:10:36.626540
+Permutation explainer: 2905it [11:39,  4.10it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for TSLA with rf and base:  2022-12-19 00:22:16.424745
+Model explanation Shap plots started for TSLA with gb and base:  2022-12-19 00:22:16.424769
+Model trained finish:  2022-12-19 00:23:29.232981
+Permutation explainer: 2905it [15:25,  3.11it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for TSLA with gb and base:  2022-12-19 00:38:54.975386
+Model explanation Shap plots started for BAC with gb and DT_RSI_2_20:  2022-12-19 00:38:54.975410
+Model trained finish:  2022-12-19 00:40:03.043134
+Permutation explainer: 3022it [04:03, 11.92it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with gb and DT_RSI_2_20:  2022-12-19 00:44:06.868673
+Model explanation Shap plots started for BAC with rf and LINTRND_10:  2022-12-19 00:44:06.868696
+Model trained finish:  2022-12-19 00:44:52.807170
+Permutation explainer: 3022it [12:14,  4.06it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with rf and LINTRND_10:  2022-12-19 00:57:08.237795
+Model explanation Shap plots started for BAC with ridge and RSI_20:  2022-12-19 00:57:08.237818
+Model trained finish:  2022-12-19 00:57:13.140788
+Permutation explainer: 3022it [01:28, 30.24it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with ridge and RSI_20:  2022-12-19 00:58:42.407600
+Model explanation Shap plots started for BAC with gb and ENT_4_16:  2022-12-19 00:58:42.407625
+Model trained finish:  2022-12-19 00:59:58.621592
+Permutation explainer: 3022it [12:27,  3.99it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with gb and ENT_4_16:  2022-12-19 01:12:27.060549
+Model explanation Shap plots started for BAC with rf and PR_INT_0:  2022-12-19 01:12:27.060575
+Model trained finish:  2022-12-19 01:13:09.291679
+Permutation explainer: 3022it [18:45,  2.66it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with rf and PR_INT_0:  2022-12-19 01:31:55.022512
+Model explanation Shap plots started for BAC with ridge and PR_INT_0:  2022-12-19 01:31:55.022535
+Model trained finish:  2022-12-19 01:31:59.942410
+Permutation explainer: 3022it [01:28, 30.19it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with ridge and PR_INT_0:  2022-12-19 01:33:29.362139
+Model explanation Shap plots started for BAC with ridge and base:  2022-12-19 01:33:29.362164
+Model trained finish:  2022-12-19 01:33:34.302024
+Permutation explainer: 3022it [01:21, 32.46it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with ridge and base:  2022-12-19 01:34:56.951597
+Model explanation Shap plots started for BAC with rf and base:  2022-12-19 01:34:56.951623
+Model trained finish:  2022-12-19 01:35:43.266162
+Permutation explainer: 3022it [15:04,  3.31it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with rf and base:  2022-12-19 01:50:48.229284
+Model explanation Shap plots started for BAC with gb and base:  2022-12-19 01:50:48.229306
+Model trained finish:  2022-12-19 01:51:59.817348
+Permutation explainer: 3022it [07:42,  6.39it/s]                                                                                                                                   
+No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored
+Model explanation Shap plots finished for BAC with gb and base:  2022-12-19 01:59:43.240997
