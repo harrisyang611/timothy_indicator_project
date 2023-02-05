@@ -1,0 +1,28 @@
+Proposal:
+
+this is just a raw proposal introducing whant I plan to do, may not be the final project brief. Things may be removed or added accordingly.
+
+Student:
+Yunkun(Harris) Yang
+
+Problem:
+
+Whether Timothy indicators can help the prediction well. have not decided on price/return
+
+Data:
+Yahoo finance data & Timothy executables created indicators.
+
+Method (mostly SKLearn so easier)
+
+white-box models like decision tree (regression or not) / SVM (SVC or not)
+
+black box models like random forest & gbm
+
+
+Extra:
+
+Model explanations: 
+
+- partial dependence/permutation importance from sklearn 
+- lime and shap & SHAPLEY
+
