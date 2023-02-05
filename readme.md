@@ -1,4 +1,4 @@
-This is final project for APS1052. It uses ML with Timoty Master's indicators to see whether those indicators help the model
+This is final project for APS1052. It uses ML with Timoty Master's indicators to see whether those indicators help the model.
 
 Directory introduction:
 
