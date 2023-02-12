@@ -5,3 +5,4 @@ MEM.LOG
 model_joblib/
 output_new/
 output_old/
+*__pycache__*

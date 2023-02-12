@@ -304,7 +304,6 @@ for my_ticker_file in tqdm(list_file):
         except:
             pass
 
-
     myres = myres.drop(['model_tuned','column_names'], axis=1)
     outfile = output_dir + ticker_name + '_model_result.csv'
     myres.to_csv(outfile, index=False)
