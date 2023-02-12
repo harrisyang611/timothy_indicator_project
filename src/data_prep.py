@@ -65,7 +65,7 @@ for stock in stock_list:
     signal_location = './data/' + stock_name + '_signal.txt'
     shutil.move('.\OUTVARS.TXT', signal_location)
 
-    indicator = pd.read_csv('.\data\OEX_signal.txt' ,delim_whitespace=True)
+    indicator = pd.read_csv(signal_location ,delim_whitespace=True)
     indicator['Date'] = pd.to_datetime(indicator['Date'], format = '%Y%m%d')
     indicator['Date'] = indicator['Date'].dt.strftime('%Y%m%d')
 
