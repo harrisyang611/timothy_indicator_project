@@ -1,8 +1,9 @@
 data/
+data_old/
 output/
 project_venv/
 MEM.LOG
 model_joblib/
-output_new/
-output_old/
+*output_*
 *__pycache__*
+/imgs/
