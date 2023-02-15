@@ -1,15 +1,41 @@
+# Indicator Project with Timothy Masters indicators
+
 This is Timothy Master Indicator Project. It uses ML with Timoty Master's indicators to see whether those indicators help the model.
 
 Data are downloaded from yahoo finance, indicators are created through Timothy executables. Price returns are used for modelling. SKlearn is used for a easy replication for other students. Lime and SHAP are used to determine whether the indicators work.
 
+## Slides:
 
-Directory introduction:
+[./slides/2023_feb/slides_final.pptx](https://github.com/harrisyang611/timothy_indicator_project/blob/master/slides/2023_feb/slides_final.pptx)
+
+
+## Requirements:
+
+./req_pkg.txt for pip list
+Windows machine is required to run data script.
+    ./exe/ includes the pre-compiled Timothy Masters' program,
+    For other executables, please see [Github Link](https://github.com/harrisyang611/timothy_master_indicator/tree/main/self_compiled)
+
+## Sample Showcase
 
 ./notebook/ has some instruction on how to start on the project.
 
-./exe/ for the Timothy executables
-./slides for the presentation and used screenshots
-./src/ for all the code and notebook playground
-./req_pkg.txt pip list
-./VS.txt timothy indicator list
+The sequence you can follow to do for the notebook showcase:
+- data_prep_instruction.ipynb [Link Here](https://github.com/harrisyang611/timothy_indicator_project/blob/master/notebook/data_prep_instruction.ipynb)
+    This scripts allows you to download the new stock information and create all the indicators.
+    requirement: 
+        Windows machine
+        **VS.txt** file(timothy masters indicator specification) has to be present
+- data_with_shap_instruction.ipynb [Link Here](https://github.com/harrisyang611/timothy_indicator_project/blob/master/notebook/model_with_shap_instruction.ipynb)
+    This notebook will build the model upon the data created from previous notebook and store the model in joblib format
+- construct_equity_plot.ipynb [Link Here](https://github.com/harrisyang611/timothy_indicator_project/blob/master/notebook/construct_equity_plot.ipynb)
+    This notebook allows you to construct the equity profile using the data created in first step and model trained in second step.
 
+The data is already run for OEX(S&P 500) and models are built on baseline model / CMMA_10_252, files are store in the ./notebook/testing_data/
+
+Mode details are stated in the notebook respectively.
+
+
+## Scripts
+
+./src/ for all the codes in script version, some of them are uncleaned and unorganized. 
