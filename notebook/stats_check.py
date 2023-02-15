@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
+from scipy.stats import spearmanr
+
 
 '''
 https://people.duke.edu/~ccc14/sta-663/ResamplingAndMonteCarloSimulations.html
@@ -11,6 +13,43 @@ This subroutine will calculate White's Reality Check for a single trading rule
 in accordance with Aronson's Evidence Based Technical Analysis p.237ff
 
 '''
+
+def information_coefficient(y_true, y_pred):
+    rho, pval = spearmanr(y_true,y_pred) #spearman's rank correlation
+    return rho
+
+def sharpe(y_true, y_pred):
+    positions = np.where(y_pred> 0,1,-1 )
+    dailyRet = pd.Series(positions).shift(1).fillna(0).values * y_true
+    dailyRet = np.nan_to_num(dailyRet)
+    ratio = (252.0 ** (1.0/2.0)) * np.mean(dailyRet) / np.std(dailyRet)
+    return ratio
+
+def calculateMaxDD(cumret):
+    highwatermark = np.zeros(len(cumret))
+    drawdown      = np.zeros(len(cumret))
+    drawdownduration = np.zeros(len(cumret))
+    for t in range(1, len(cumret)):
+        highwatermark[t] = np.max([highwatermark[t-1], cumret[t]])
+        drawdown[t] = (1+cumret[t]) / (1 + highwatermark[t]) - 1
+        if (drawdown[t]==0):
+            drawdownduration[t] = 0
+        else:
+            drawdownduration[t] = drawdownduration[t-1] + 1
+    return np.min(drawdown), np.max(drawdownduration)
+
+def extra_model_eva(grid_search, X, y):
+    positions = np.where(grid_search.predict(X)> 0,1,-1 ) #POSITIONS
+    dailyRet = pd.Series(positions).fillna(0).values * y.retFut1 #for trading right after the open
+    dailyRet = dailyRet.fillna(0)
+    cumret = np.cumprod(dailyRet + 1) - 1
+    cagr = (1 + cumret[-1]) ** (252 / len(cumret)) - 1
+    maxDD, maxDDD = calculateMaxDD(cumret)
+    ratio = (252.0 ** (1.0/2.0)) * np.mean(dailyRet) / np.std(dailyRet)
+    ## return CAGR, Sharpe ratio, Calmar
+    return(cagr, ratio, -cagr/maxDD)
+
+
 
 def detrendPrice(series):
     # fit linear model
