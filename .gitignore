@@ -7,3 +7,4 @@ model_joblib/
 *output_*
 *__pycache__*
 /imgs/
+notebook/data_with_indicator/
