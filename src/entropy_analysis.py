@@ -1,3 +1,5 @@
+## This is just a sample showcase for entropy.
+
 
 import numpy as np
 import antropy as ant

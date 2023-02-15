@@ -1,3 +1,5 @@
+## This is a script written to train the model followed immediately by a model explanantion.
+
 
 import pandas as pd
 import shap
