@@ -6,7 +6,7 @@ Data are downloaded from yahoo finance, indicators are created through Timothy e
 
 ## Slides:
 
-[./slides/2023_feb/slides_final.pptx](https://github.com/harrisyang611/timothy_indicator_project/blob/master/slides/2023_feb/slides_final.pptx)
+[./slides/2023_feb/slides.pptx](https://github.com/harrisyang611/timothy_indicator_project/blob/master/slides/2023_feb/slides.pptx)
 
 
 ## Requirements:
