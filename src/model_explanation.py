@@ -1,6 +1,6 @@
 ## This is a script written to train the model followed immediately by a model explanantion.
 
-
+## loading packages
 import pandas as pd
 import shap
 import lime.lime_tabular
@@ -20,12 +20,13 @@ from sklearn.ensemble import GradientBoostingRegressor
 import matplotlib.pyplot as plt
 import datetime
 
-
+## functions for spearman's rank corr.
 def information_coefficient(y_true, y_pred):
     rho, pval = spearmanr(y_true,y_pred) #spearman's rank correlation
     # print (rho)
     return rho
 
+## calculate sharpe ratios
 def sharpe(y_true, y_pred):
     positions = np.where(y_pred> 0,1,-1 )
     dailyRet = pd.Series(positions).shift(1).fillna(0).values * y_true
@@ -33,7 +34,7 @@ def sharpe(y_true, y_pred):
     ratio = (252.0 ** (1.0/2.0)) * np.mean(dailyRet) / np.std(dailyRet)
     return ratio
 
-
+## the helper function to create the shap explainer and plot the graph
 def shap_wrapper(model, X_train, plot_title, plot_location):
     explainer = shap.Explainer(model.predict, X_train)
     model_exp = explainer(X_train)
@@ -104,23 +105,26 @@ if __name__ == '__main__':
         ]
 
     for eva_dict in evaluation_list:
-
+        ## getting the single indicator
         indicator = eva_dict['col']
         model_name = eva_dict['model_name']
         ticker_name = eva_dict['ticker_name']
 
         print(f'Model explanation Shap plots started for {ticker_name} with {model_name} and {indicator}: ',  datetime.datetime.now())
 
+        ## loading data
         df = pd.read_csv(f'./data/{ticker_name}_full.csv')
         df['Date'] = pd.to_datetime(df['Date'], format = '%Y%m%d')
-
         df = df.set_index('Date')
 
+        ## calculate the percentage return 
         for n in list(range(1,30)):
             name = 'ret' + str(n)
             df[name] = df['Open'].pct_change(periods=n)#for trading with open
 
+        ## calculate the future return
         df['retFut1'] = df['Open'].pct_change(1).shift(-1).fillna(0)
+        ## apend RIS 20 and 25 using talib package
         df['RSI_20_ta'] = ta.RSI(np.array(df['Open']), timeperiod = 20)
         df['RSI_25_ta'] = ta.RSI(np.array(df['Open']), timeperiod = 25)
 
@@ -130,15 +134,20 @@ if __name__ == '__main__':
             'ret18', 'ret19', 'ret20', 'ret21', 'ret22', 'ret23', 'ret24', 'ret25',
             'ret26', 'ret27', 'ret28', 'ret29']
         
+        ## time series split the data frame
         split = TimeSeriesSplit(n_splits=5)
+        ## make the sharpe ratio as the score function for scikit learn
         sharpe_scorer = make_scorer(sharpe, greater_is_better=True)
+        ## make the spearmanr ratio as the score function for scikit learn
         spearmanr_scorer = make_scorer(information_coefficient, greater_is_better=True)
         scoring = {"rmse": "neg_root_mean_squared_error", 'sharpe': sharpe_scorer, 'spearmanr': spearmanr_scorer}
+        ## create the pipeline
         numeric_sub_pipeline = Pipeline(steps=[
             ('imputer', SimpleImputer(strategy='constant', fill_value = 0)),
             ('scaler', StandardScaler())])
 
-        ## training here
+        ## training
+        ## making the model with different parameters
         if(model_name == 'ridge'):
             ridge = Ridge(max_iter=5000) 
             a_rs = np.logspace(-40, 0, num=100, endpoint = True)
@@ -147,7 +156,6 @@ if __name__ == '__main__':
             param_grid = [{ 'ridge__alpha': a_rs }]
         
         elif(model_name == 'rf'):
-            
             pipeline = Pipeline(steps=[('preprocessor', numeric_sub_pipeline),('rf', RandomForestRegressor())])
             param_grid = [{ 'rf__n_estimators': [100] , 'rf__max_depth':[10,15,20]}]
 
@@ -155,6 +163,7 @@ if __name__ == '__main__':
             pipeline = Pipeline(steps=[('preprocessor', numeric_sub_pipeline),('gb', GradientBoostingRegressor())])
             param_grid = [{ 'gb__n_estimators': [100] , 'gb__max_depth':[5,10,15,20]}]
 
+        ## calculating the indicators VS baseline model
         if(indicator == 'base'):
             df_model = df[base_col + ['retFut1']]
             X_train = df_model.drop(['retFut1'], axis=1)
@@ -165,11 +174,12 @@ if __name__ == '__main__':
             X_train = df_model.drop(['retFut1'], axis=1)
             y_train = df_model[['retFut1']]
 
+        ## grid search with cross validation
         grid_search = GridSearchCV(pipeline, param_grid, cv=split, scoring=scoring, refit='sharpe', return_train_score=True)
         grid_search.fit(X_train, y_train.values.ravel())
 
         print(f'Model trained finish: ',  datetime.datetime.now())
-
+        ## print the shap result.
         shap_plot(grid_search, X_train, model_name, indicator, ticker_name)
 
         print(f'Model explanation Shap plots finished for {ticker_name} with {model_name} and {indicator}: ',  datetime.datetime.now())

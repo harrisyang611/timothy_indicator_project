@@ -1,6 +1,6 @@
 ## This is just a sample showcase for entropy.
 
-
+## loading packages
 import numpy as np
 import antropy as ant
 import pandas as pd
