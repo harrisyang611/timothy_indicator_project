@@ -33,8 +33,6 @@ stock_list = [
 ] 
 
 
-
-
 for stock in stock_list:
     ## remove the ^ in front of the stock name, otherwise leave the same
     stock_name = stock[1:] if stock[0] == '^' else stock
@@ -73,12 +71,15 @@ for stock in stock_list:
     signal_location = './data/' + stock_name + '_signal.txt'
     shutil.move('.\OUTVARS.TXT', signal_location)
 
+    ## read the file we just created through the single program
+
     indicator = pd.read_csv(signal_location ,delim_whitespace=True)
     indicator['Date'] = pd.to_datetime(indicator['Date'], format = '%Y%m%d')
     indicator['Date'] = indicator['Date'].dt.strftime('%Y%m%d')
 
     print('indicator file has shape', indicator.shape)
 
+    ## merge the indicators with oroginal data and save the data
     df_result = df.merge(indicator, left_on = 'Date', right_on = 'Date', how = 'left')
     df_result.to_csv('./data/' + stock_name + '_full.csv', index=False)
 

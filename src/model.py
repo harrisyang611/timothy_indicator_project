@@ -1,6 +1,6 @@
-## The script we wrote for running everything
-## This script is a bit uncleaned, require further documentations
+## The script we wrote for the main model
 
+## loading packages
 import pandas as pd
 import numpy as np
 from scipy.stats import spearmanr
@@ -16,7 +16,6 @@ from sklearn.metrics import mean_squared_error
 
 import shap
 import matplotlib.pyplot as plt
-
 
 import os
 import talib as ta
@@ -78,12 +77,13 @@ evaluation_list = [
     {'col': 'base', 'model_name': 'gb', 'ticker_name': 'BAC'}
     ]
 
-
+## calculate spearman's rank corr.
 def information_coefficient(y_true, y_pred):
     rho, pval = spearmanr(y_true,y_pred) #spearman's rank correlation
     # print (rho)
     return rho
 
+## calculate sharpe ratio
 def sharpe(y_true, y_pred):
     positions = np.where(y_pred> 0,1,-1 )
     dailyRet = pd.Series(positions).shift(1).fillna(0).values * y_true
@@ -91,7 +91,9 @@ def sharpe(y_true, y_pred):
     ratio = (252.0 ** (1.0/2.0)) * np.mean(dailyRet) / np.std(dailyRet)
     return ratio
 
-
+## calculate draw down
+## draw down is a peak-to-trough decline during a specific period for an investment
+## it will be used to evaluate the model
 def calculateMaxDD(cumret):
     highwatermark = np.zeros(len(cumret))
     drawdown      = np.zeros(len(cumret))
@@ -105,7 +107,7 @@ def calculateMaxDD(cumret):
             drawdownduration[t] = drawdownduration[t-1] + 1
     return np.min(drawdown), np.max(drawdownduration)
 
-
+## evaluate the model
 def extra_model_eva(grid_search, X, y):
     positions = np.where(grid_search.predict(X)> 0,1,-1 ) #POSITIONS
     dailyRet = pd.Series(positions).fillna(0).values * y.retFut1 #for trading right after the open
@@ -117,15 +119,17 @@ def extra_model_eva(grid_search, X, y):
     ## return CAGR, Sharpe ratio, Calmar
     return(cagr, ratio, -cagr/maxDD)
 
-
+## functions to tune the model with grid search cross validation
 def tuning_model(X_train, y_train, pipeline, param_grid, col):
+    ## create the grid search cross validation
     grid_search = GridSearchCV(pipeline, param_grid, cv=split, scoring=scoring, refit='sharpe', return_train_score=True)
     grid_search.fit(X_train, y_train.values.ravel())
+    ## getting the best parameter
     best_parameters = grid_search.best_params_
     best_model = grid_search.best_estimator_
     
     results = pd.DataFrame(grid_search.cv_results_)
-
+    ## calculate the baseline model result
     base_sharpe = np.max(results['mean_test_sharpe'])
     base_rmse = np.max(results['mean_test_rmse'])
     base_spearmanr = np.max(results['mean_test_spearmanr'])
@@ -150,6 +154,7 @@ def model_building(df, model_name, pipe, param_grid, train_size = 0.75):
     no_rows = df.shape[0]
     train_size = int(no_rows * train_size)
 
+    ## preparing the data with X and y
     df_model = df[base_col + ['retFut1']]
     train, test = df_model[0:train_size], df_model[train_size: no_rows]
     X_train = train.drop(['retFut1'], axis=1)
@@ -157,11 +162,11 @@ def model_building(df, model_name, pipe, param_grid, train_size = 0.75):
     X_test = test.drop(['retFut1'], axis=1)
     y_test = test['retFut1']
     
-
     indicator_result = []
     model_result, tuned_model = tuning_model(X_train, y_train, pipe, param_grid, 'base')
-
+    ## using the tuned result to predict the return
     y_pred = tuned_model.predict(X_test)
+    ## calculate the test metrics
     test_spearmanr = information_coefficient(y_test, y_pred)
     test_sharpe = sharpe(y_test, y_pred)
     test_rmse = mean_squared_error(y_test, y_pred)
@@ -170,6 +175,8 @@ def model_building(df, model_name, pipe, param_grid, train_size = 0.75):
     model_result['test_rmse'] = test_rmse
 
     indicator_result.append(model_result)
+
+    ## appending all the results to the model
 
     for ind in indicator_col:
         df_temp = df[base_col + ['retFut1'] + [ind]]
@@ -194,7 +201,7 @@ def model_building(df, model_name, pipe, param_grid, train_size = 0.75):
 
     return( model_df )
 
-
+## the helper function to create shap explainer
 def shap_wrapper(model, X_train, plot_title, plot_location):
     explainer = shap.Explainer(model.predict, X_train)
     model_exp = explainer(X_train)
@@ -204,7 +211,7 @@ def shap_wrapper(model, X_train, plot_title, plot_location):
     plt.savefig(plot_location)
     plt.close()
 
-
+## plot the shap result and save to the out dir.
 def shap_plot(model, df, model_name,indicator_name, ticker_name, outdir = output_dir):
     
     no_rows = df.shape[0]
@@ -225,6 +232,7 @@ if __name__ == '__main__':
     print(list_file)
     output_dir = './output_new/' 
 
+    ## loop over the list of files
     for my_ticker_file in tqdm(list_file):
         
         ticker_name = my_ticker_file.split('_')[0]
@@ -236,6 +244,7 @@ if __name__ == '__main__':
 
         df = df.set_index('Date')
 
+        ## calculate the percentage return
         for n in list(range(1,15)):
             name = 'ret' + str(n)
             df[name] = df['Open'].pct_change(periods=n)#for trading with open
@@ -250,20 +259,19 @@ if __name__ == '__main__':
         ]
         base_col = ['ret1', 'ret2', 'ret3', 'ret4', 'ret5', 'ret6', 'ret7', 'ret8', 'ret9',
             'ret10', 'ret11', 'ret12', 'ret13', 'ret14']
-            # , 'ret15', 'ret16', 'ret17',
-            # 'ret18', 'ret19', 'ret20', 'ret21', 'ret22', 'ret23', 'ret24', 'ret25',
-            # 'ret26', 'ret27', 'ret28', 'ret29']
 
         print(f'Data Prep finished: ',  datetime.datetime.now())
 
-        ## model def
+        ## model defn, with multiple scorer
 
         sharpe_scorer = make_scorer(sharpe, greater_is_better=True)
         spearmanr_scorer = make_scorer(information_coefficient, greater_is_better=True)
         scoring = {"rmse": "neg_root_mean_squared_error", 'sharpe': sharpe_scorer, 'spearmanr': spearmanr_scorer}
         split = TimeSeriesSplit(n_splits=5)
 
-        ## training here
+        ## training the model withe the grid search over the pre-defined parameters
+
+        ## Ridge Regression
         numeric_sub_pipeline = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='constant', fill_value = 0)),
         ('scaler', StandardScaler())])
@@ -277,6 +285,8 @@ if __name__ == '__main__':
         
         print(f'ridge model finished: ',  datetime.datetime.now())
 
+        ## Random Forest
+
         rf_pipe = Pipeline(steps=[('preprocessor', numeric_sub_pipeline),('rf', RandomForestRegressor())])
         rf_param_grid = [{ 'rf__n_estimators': [250] , 'rf__max_depth':[10,20,30]}]
 
@@ -284,12 +294,16 @@ if __name__ == '__main__':
 
         print(f'rf model finished: ',  datetime.datetime.now())
 
+        ## Gradient Boosting
+
         gb_pipe = Pipeline(steps=[('preprocessor', numeric_sub_pipeline),('gb', GradientBoostingRegressor())])
         gb_param_grid = [{ 'gb__n_estimators': [250] , 'gb__max_depth':[10,20,30]}]
 
         db_df = model_building(df, 'gb', gb_pipe, gb_param_grid)
 
         print(f'gb model finished: ',  datetime.datetime.now())
+
+        ## getting the result and save to csvs.
 
         myres = pd.concat([ridge_df , rf_df, db_df])
         for index, row in myres.iterrows():
