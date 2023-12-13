@@ -38,4 +38,7 @@ Mode details are stated in the notebook respectively.
 
 ## Scripts
 
-./src/ for all the codes in script version, some of them are uncleaned and unorganized. 
+./src/ for all the codes in script version.
+- [Data Prep](https://github.com/harrisyang611/timothy_indicator_project/blob/master/src/data_prep.py)is used to generate data with indicators
+- [Model Script](https://github.com/harrisyang611/timothy_indicator_project/blob/master/src/model.py) is used to run main models
+- [Model Explain](https://github.com/harrisyang611/timothy_indicator_project/blob/master/src/model_explanation.py) is used to generate model explanation results
